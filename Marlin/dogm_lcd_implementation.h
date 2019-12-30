@@ -118,26 +118,39 @@ static void lcd_implementation_init()
 #endif
 
    
-	u8g.firstPage();
+   u8g.firstPage();
 	do {
 			// RepRap init bmp
 			u8g.drawBitmapP(0,0,START_BMPBYTEWIDTH,START_BMPHEIGHT,start_bmp);
 			// Welcome message
 			u8g.setFont(u8g_font_6x10_marlin);
-			u8g.drawStr(62,10,"MARLIN"); 
+			u8g.drawStr(62,10,"B I B O"); 
 			u8g.setFont(u8g_font_5x8);
-			u8g.drawStr(62,19,"V1.0.2");
+			u8g.drawStr(62,19,"       ");
 			u8g.setFont(u8g_font_6x10_marlin);
-			u8g.drawStr(62,28,"by ErikZalm");
-			u8g.drawStr(62,41,"DOGM128 LCD");
+			u8g.drawStr(62,28,"3D PRINTER ");
+  //#if LANGUAGE_CHOICE == 10
+      //u8g.setFont(chinese);
+      //u8g.drawStr(62,40,"\x84\x85\x86\x87 By");
+			//u8g.drawStr(62,52,"\x7f\x80\x81\x82\x83");
+			//u8g.drawStr(62,63,"BIBO");
+  //#else
+            u8g.setFont(u8g_font_5x8);
+			u8g.drawStr(62,41,"Let's start");
 			u8g.setFont(u8g_font_5x8);
-			u8g.drawStr(62,48,"enhancements");
+			u8g.drawStr(62,48,"");
 			u8g.setFont(u8g_font_5x8);
-			u8g.drawStr(62,55,"by STB, MM");
-			u8g.drawStr(62,61,"uses u");
-			u8g.drawStr90(92,57,"8");
-			u8g.drawStr(100,61,"glib");
+			u8g.drawStr(62,55,"ourbibo.com");
+			u8g.drawStr(62,61,"  v 1.2");
+			u8g.drawStr90(92,57,"");
+			u8g.drawStr(100,61,"    ");
+  //#endif
+			//u8g.setFont(u8g_font_5x8);
+			//u8g.drawStr(62,61,"uses u");
+			//u8g.drawStr90(92,57,"8");
+			//u8g.drawStr(100,61,"glib");
 	   } while( u8g.nextPage() );
+	   delay(3000);
 }
 
 static void lcd_implementation_clear()

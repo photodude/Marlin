@@ -419,6 +419,11 @@ static void lcd_tune_menu()
 {
     START_MENU();
     MENU_ITEM(back, MSG_MAIN, lcd_main_menu);
+    if (EXTRUDERS > 1){
+      extern bool ditto_print_enabled;
+    	if(ditto_print_enabled){MENU_ITEM(gcode, MSG_DISABLE_DITTO, PSTR("M420 S0"));}
+	else{MENU_ITEM(gcode, MSG_ENABLE_DITTO, PSTR("M420 S1"));}
+    }
     MENU_ITEM_EDIT(int3, MSG_SPEED, &feedmultiply, 10, 999);
 #if TEMP_SENSOR_0 != 0
     MENU_ITEM_EDIT(int3, MSG_NOZZLE, &target_temperature[0], 0, HEATER_0_MAXTEMP - 15);
@@ -612,6 +617,12 @@ static void lcd_prepare_menu()
       MENU_ITEM(function, MSG_AUTOSTART, lcd_autostart_sd);
     #endif
 #endif
+
+     if (EXTRUDERS > 1){
+      extern bool ditto_print_enabled;
+    	if(ditto_print_enabled){MENU_ITEM(gcode, MSG_DISABLE_DITTO, PSTR("M420 S0"));}
+	else{MENU_ITEM(gcode, MSG_ENABLE_DITTO, PSTR("M420 S1"));}
+    }
     MENU_ITEM(gcode, MSG_DISABLE_STEPPERS, PSTR("M84"));
     MENU_ITEM(gcode, MSG_AUTO_HOME, PSTR("G28"));
     MENU_ITEM(function, MSG_SET_HOME_OFFSETS, lcd_set_home_offsets);

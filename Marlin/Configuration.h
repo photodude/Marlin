@@ -719,7 +719,8 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 93.6 } // 1/16 microstepping
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 800, 187.2 } // 1/32 microstepping
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   { 200, 200, 800, 187.2 } // 1/32 microstepping
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 400, 400, 1600, 374.4 } // 1/32 microstepping
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1332,7 +1333,7 @@
 
 // Homing speeds (mm/m)
 #define HOMING_FEEDRATE_XY (50*60)
-#define HOMING_FEEDRATE_Z  (4*60)
+#define HOMING_FEEDRATE_Z  (5*60)
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
